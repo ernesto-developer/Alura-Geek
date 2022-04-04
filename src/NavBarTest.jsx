@@ -9,7 +9,8 @@ export const Navbar = () => {
                 className="navbar-brand" 
                 to="/"
             >
-                Paginas
+                Public Page
+
             </Link>
 
             <div className="navbar-collapse">
@@ -31,6 +32,14 @@ export const Navbar = () => {
                         to="/products"
                     >
                         Products
+                    </NavLink>
+                    <NavLink 
+                        activeClassName="active"
+                        className="nav-item nav-link" 
+                        exact
+                        to="/addProucts"
+                    >
+                        Add Product
                     </NavLink>
                 </div>
             </div>
