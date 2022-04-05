@@ -7,7 +7,7 @@ import { Navbar } from '../NavBarTest';
 export const AppRouter = () => {
   return (
     <BrowserRouter>
-    <Navbar />
+    {/* <Navbar /> */}
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/*" element={<AuthRouter />} />

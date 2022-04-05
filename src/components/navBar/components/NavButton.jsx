@@ -2,8 +2,8 @@ import React from 'react'
 
 export const NavButton = () => {
   return (
-    <div>
-      <button>Button</button>
-    </div>
+    
+      <button className='navBar__container-button' >Login</button>
+    
   )
 }
