@@ -1,4 +1,11 @@
 @import './base/settings';
 @import './base/base';  
 
-@import '/src/styles/components/navBar/NavBar-Style.scss'
+// NavBar
+@import '/src/styles/components/navBar/NavBar-Style.scss';
+//LoginForm
+@import '/src/styles/components/loginForm/LoginForm-Style.scss';
+// Footer
+@import '/src/styles/components/footer/Footer-Style.scss';
+//SkirtingBoard
+@import '/src/styles/components/skirtingBoard/SkirtingBoard-Style.scss';
