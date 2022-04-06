@@ -1,7 +1,22 @@
 import React from 'react'
+import {  NavLink } from 'react-router-dom'
+import { contactLinks } from '../../../resources/contactLinks'
 
 export const InfoLinks = () => {
+
   return (
-    <div>InfoLinks</div>
+  
+      <ul className='skirtingBoard__container__links' >  
+          {contactLinks.map((link, index) => {
+            return (
+                <NavLink 
+                    key={index} 
+                    className='skirtingBoard__container__links-link' 
+                    to={`/login`}>{link}
+                </NavLink>
+            );
+          })} 
+      </ul>
+ 
   )
 }

@@ -1,0 +1,125 @@
+.skirtingBoard{
+    //styles
+    background-color: $primary;
+    display: flex;
+
+    //sizes
+    width: 100%;
+    height: 390px;
+    padding: 75px 10%;
+
+}
+
+.skirtingBoard__container-img{
+    
+    //sizes
+    width: 176px;
+    height: 50px;
+
+}
+
+.skirtingBoard__container__links{
+    //orgainzation   
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 0px;
+    margin: 0px 10%;
+    width: 176px;
+    height: 234px;
+    box-sizing: content-box;
+   
+}
+
+.skirtingBoard__container__links-link{
+      
+      //fonts
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 19px;
+      color: $font-color-primary;
+      text-decoration: none;
+}
+
+.skirtingBoard__contactForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 50%;
+}
+
+.skirtingBoard__contactForm-title{
+    //fonts
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 19px;
+    color: $font-color-primary;
+}
+
+.skirtingBoard__contactForm__conatinerName{
+
+    // TODO hacer que al hacer click en el campo se haga el focus en el input
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 56px;
+    background-color: $white;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+
+    label{
+        //fonts
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 16px;
+        color: $font-color-secondary;
+    }
+    input{
+        //fonts
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 20px;
+        color: $font-color-primary;
+        border: none;
+        background-color: $white;
+        outline: none;
+    }
+
+
+}
+
+.skirtingBoard__contactForm-textArea{
+    width: 100%;
+    height: 82px;
+    resize: none;
+    border: none;
+    background-color: $white;
+    border-radius: 4px;
+    padding: 16px 12px;
+    outline: none;
+    &::placeholder{
+        //fonts
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 20px;
+        color: $font-color-secondary;
+    }
+}
+
+.skirtingBoard__contactForm-button{
+
+    width: 165px;
+    height: 51px;
+    background-color: $button-inline;
+    border: none;
+    border-radius: 4px;
+    //fonts
+    color: $white;  
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+
+}

@@ -1,0 +1,20 @@
+@mixin responsive_tablet($font_size, $line_height,$width,$height) {
+  @media (max-width: 790px) {
+    font-size: $font_size;
+    line-height: $line_height;
+    width: $width;
+    height: $height;
+  }
+}
+
+@mixin responsive_mobile($font_size, $line_height,$width,$height) {
+  @media (max-width: 577px) {
+    font-size: $font_size;
+    line-height: $line_height;
+    width: $width;
+    height: $height;
+  }
+}
+    
+
+    

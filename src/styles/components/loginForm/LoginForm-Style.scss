@@ -1,0 +1,66 @@
+.LoginForm{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 91px auto;
+    height: 291px;
+    width: 423px;
+
+    //Responsive
+    @include responsive_tablet(
+        $font_size: auto,
+        $line_height: auto,
+        $width: 275px,
+        $height: 189px
+    );
+}
+
+.LoginForm-title{
+    //font
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 21px;
+    color: $font-color-primary;
+    //Responsive
+    @include responsive_tablet(16px, 19px, auto, auto);
+
+}
+
+.LoginForm-input{
+    //sizes
+    width: 100%;
+    height: 63px;
+    //style-Container
+    border-radius: 4px;
+    border: none;
+    border-bottom: 1px solid $font-color-secondary;
+    outline: none;
+    padding: 0px 20px;
+    //font
+    font-size: 18px;
+    line-height: 21px;
+    color: $font-color-primary;
+    &::placeholder{
+        color: $font-color-secondary;
+    }
+    //Responsive
+    @include responsive_tablet(16px, 20px, 100%, 41px);
+}
+
+.LoginForm-button{
+    // sizes    
+    width: 100%;
+    height: 62px;
+    //style-Container
+    border-radius: 4px;
+    border: none;
+    background-color: $button-inline;
+    color: $white;
+    //font
+    font-size: 18px;
+    line-height: 21px;
+    font-weight: 200;
+    //Responsive
+    @include responsive_tablet(14px, 16px, 109px, 40px);
+}
