@@ -1,0 +1,23 @@
+ [
+    {
+        "title": "Star Wars",
+        "products": [
+            {
+                "name": "R2-D2",
+                "price": "100.00",
+                "img": "assets/imgs/starWars/unsplash_4OHkK555s1A.png"
+            },
+            {
+                "name": "C-3PO",
+                "price": "150.00",
+                "img": "assets/imgs/starWars/unsplash_4OHkK555s1A.png"
+            },
+            {
+                "name": "Luke Skywalker",
+                "price": "200.00",
+                "img": "assets/imgs/starWars/unsplash_4OHkK555s1A.png"
+            }
+        
+        ]
+    }
+]
