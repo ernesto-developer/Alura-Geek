@@ -1,9 +1,9 @@
 import React from 'react'
-
+import { NavLink } from 'react-router-dom'
 export const NavButton = () => {
   return (
     
-      <button className='navBar__container-button' >Login</button>
+      <NavLink className="nav-link" to='/login' > <button className='navBar__container-button' >Login</button> </NavLink>
     
   )
 }

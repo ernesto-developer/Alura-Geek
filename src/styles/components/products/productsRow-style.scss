@@ -1,4 +1,67 @@
+.ProductsSection{
+    margin: 64px 0px 64px 8%;
+    padding: 8px;
+    width: fit-content;
+    @media(max-width: 500px){
+        margin: 8px
+    }
+}
+
+.ProductsSection__titles{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 16px;
+
+    //Title
+    h2{
+        //font-style
+        margin: 0px;
+        @include fontStyle(32px, 700, 38px, $font-color-primary);
+        //responsive
+        @media(max-width: 500px){
+            @include fontStyle(22px, 700, 26px, $font-color-primary);
+        }
+    }
+    //Icon Arrow-Right
+    i{
+        margin-left: 8px;
+        color: $button-inline;
+    }
+}
+
+.ProductsSection__AddProductButton{
+
+
+    button{
+          //dimensions
+    width: 163px;
+    height: 51px;
+    //box-style
+    background-color: $button-inline;
+    border: none;
+    border-radius: 4px;
+    //font-style
+    @include fontStyle(16px, 400, 19px, $white);
+    }
+}
+
+.ProductsScetion__containerSeeAll{
+    align-self: center
+}
+.ProductsSection__sesAll{
+    //font-style
+    @include fontStyle(16px, 700, 19px, $button-inline);
+    text-decoration: none;
+    @media (max-width: 500px) {
+        @include fontStyle(14px, 700, 16px, $button-inline);
+    }
+}
+
 .RowProducts{
     display: flex;
-
+    flex-wrap: wrap;
+    @media (max-width: 500px) {
+        justify-content: center;
+    }
 }
+

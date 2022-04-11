@@ -19,7 +19,7 @@
     width: 100%;
     //position
     display: flex;
-    margin-left: 10%;
+    margin-left: 8%;
     
     //responsive
     @media(max-width: 790px){
@@ -108,10 +108,9 @@
 
 .navBar__container-button{
     //dimensions
+    width: 183px;
     height: 51px;
-    width: 182px;
-    //position
-    margin-right: 10%;
+    
     //box-style
     background-color: $white;
     border: 1px solid $button-inline;
@@ -124,12 +123,22 @@
 
     //responsive
     @media (max-width: 790px){
-        width: 166px;
+        width: 160px;
         height: 40px;
         padding: 12px 16px;
         font-size: 14px;
         font-weight: 600;
     }
+    @media (max-width: 577px){
+        margin: 5px 48%;
+        width: 133px;
+        
+    }
+}
+.nav-link{
+    //position
+    margin-right: 10%;
+
     @media (max-width: 577px){
         position: absolute;
         margin: 5px 48%;

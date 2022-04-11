@@ -8,7 +8,6 @@
     background-image:url('../../../../public/assets/banner-image.png');
     background-repeat: no-repeat;
     background-size: cover;
-    
     //responsive
     @media(max-width: 768px){
         background-size: calc(100% ) 100%;
@@ -20,10 +19,7 @@
     
     h1{
         //font-style
-        font-size: 52px;
-        font-weight: 700;
-        line-height: 61px;
-        color: $white;
+        @include fontStyle(52px, 700, 61px, $white);
         text-shadow: -2px -2px 1px #000;
         
         //responsive
@@ -31,12 +27,8 @@
     }
     h3{
         //font-style
-        font-size: 22px;
-        font-weight: 700;
-        line-height: 26px;
-        color: $white;
+        @include fontStyle(22px, 700, 26px, $white);    
         margin-bottom: 16px;
-
         //responsive
         @include responsive_mobile(14px, 16px, auto,auto);
     }
@@ -45,19 +37,14 @@
         //dimensions
         width: 129px;
         height: 51px;
+        //box-style
         border-radius: 3px;
         border: none;
         background-color: $button-inline;
-        color: $white;
-        font-size: 16px;
-        font-weight: 400;   
-        line-height: 19px;
         cursor: pointer;
-
+        //font-style
+        @include fontStyle(16px, 400, 19px, $white);
         //resposive
         @include responsive_mobile(14px, 16px, 118px, 40px);
-
     }
-
-
 }

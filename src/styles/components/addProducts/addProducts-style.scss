@@ -1,0 +1,39 @@
+.addProductForm{
+    
+    display: flex;
+    justify-content: center;
+}
+.addProductForm-containerAll{
+    //dimensions
+    width: 559px;
+    height: 515px;
+    //position
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.addProductForm-title{
+    align-self: flex-start;
+    @include fontStyle(32px, 700, 1 , $font-color-primary);
+ 
+}
+.addProductForm__boxOptionsImage{
+
+    display: flex;
+
+}
+.addProductForm__boxOptionsImage__dragImages{
+
+}
+.addProductForm__boxOptionsImage-buttonSearchImg{
+
+}
+.addProductForm-input{
+
+}
+.addProductForm-textArea{
+
+}
+.addProductForm-buttonAddProduct{
+
+}

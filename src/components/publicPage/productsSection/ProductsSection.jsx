@@ -1,12 +1,20 @@
 import React from 'react'
-import { ProductsRows } from './ProductsRows'
-// import { imagenTest } from '../../../resources/contactLinks'
+import { ProductsRows } from './ProductsRows';
+import { productsJson } from '../../../resources/products';
+
 
 export const ProductsSection = () => {
   return (
     <div>
-        <ProductsRows />
-        {/* <img src={imagenTest} alt="img" ></img> */}
+    
+       {productsJson.map((row, index) => {
+           return  <ProductsRows 
+              key={index}
+              title={row.title}
+              index={index}
+           />
+       })}
+   
     </div>
   )
 }

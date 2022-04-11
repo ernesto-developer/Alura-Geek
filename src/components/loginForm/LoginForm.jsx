@@ -1,6 +1,5 @@
-
-
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 export const LoginForm = () => {
   return (
@@ -8,7 +7,7 @@ export const LoginForm = () => {
       <span className='LoginForm-title' >Iniciar Sesión</span>
       <input className='LoginForm-input' type='text' placeholder='Escriba su correo electronico' />
       <input className='LoginForm-input' type='password' placeholder='Escriba su contraseña' />
-      <button className='LoginForm-button' >Entrar</button>
+      <NavLink className='nav-Link' to='/' > <button className='LoginForm-button' >Entrar</button> </NavLink>
     </form>
   )
 }
