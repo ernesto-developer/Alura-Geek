@@ -5,7 +5,7 @@ import { productsJson } from '../../../resources/products';
 
 export const ProductsSection = () => {
   return (
-    <div>
+    <div className='productsPage' >
     
        {productsJson.map((row, index) => {
            return  <ProductsRows 

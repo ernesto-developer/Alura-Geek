@@ -7,33 +7,193 @@
     //dimensions
     width: 559px;
     height: 515px;
+    margin: 64px 0px;
     //position
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
+
+    //responsive
+    @media (max-width: 790px) {
+       margin: 32px 5px;
+       width: 95%;
+       align-items: flex-start;
+    }
+
 }
 .addProductForm-title{
     align-self: flex-start;
     @include fontStyle(32px, 700, 1 , $font-color-primary);
+    //responsive
+    @include responsive_tablet(22px, 1, auto, auto);
  
 }
 .addProductForm__boxOptionsImage{
 
     display: flex;
+    align-items: center;
+
+    p{
+        align-self: center;
+        margin: 0px 8px;
+    }
+    @media (max-width: 530px) {
+        width: 100%;
+        // height: 134px
+    
+    }
+    
 
 }
 .addProductForm__boxOptionsImage__dragImages{
 
+    //dimensions
+    width: 100%;
+    height: 152px;
+    padding: 5px;
+    //position
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    //box-style
+    background-color: $white;
+    border: 2px dashed $font-color-secondary;
+
+    i{
+        //dimensions
+        font-size: 32px;
+        color: #c8c8c8;
+        margin-bottom: 10px;
+    }
+    h5{
+        //foont-style
+        @include fontStyle(14px, 400, 1.3, $font-color-secondary);
+        // text-align: center;
+    }
+
+    // responsive
+    @include responsive_tablet(auto, auto, 254px, 152px);
+    @media (max-width: 530px) {
+        width: 100%;
+        height: 134px;
+        margin-top: 10px;
+    }
 }
 .addProductForm__boxOptionsImage-buttonSearchImg{
+
+    //dimensions
+    width: 229px;
+    height: 51px;
+    //box-style
+    color: $button-inline;
+    border: 1px solid $button-inline;
+    background-color: transparent;
+    //font-style
+    @include fontStyle(16px, 400, 1, $button-inline);
+
+    //responsive
+    @include responsive_tablet(auto, auto, 215px, 51px);
 
 }
 .addProductForm-input{
 
+    //dimensions
+    width: 100%;
+    height: 56px;
+    padding: 8px 12px;
+    //position
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    //box-style
+    background-color: $white;
+    border-bottom: 1px solid $font-color-secondary; 
+
+    &::hover{
+        border: 1px solid $button-inline;
+    }
+    
+    p{
+        @include fontStyle(12px, 400, 1, $font-color-secondary);
+        margin: 0px;
+    }
+
+    div{
+        display: flex;
+        align-items: center;
+
+    }
+    
+    input{
+        //dimensions
+        width: 100%;
+        height: 20px;
+        //box-style
+        border: none;
+        background-color: transparent;
+        outline: none;
+        cursor: pointer;
+        //font-style
+        @include fontStyle(16px, 400, 1, $font-color-primary);
+        &::-webkit-inner-spin-button{
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    }
 }
 .addProductForm-textArea{
 
+    //dimensions
+    width: 100%;
+    height: 90px;
+    padding: 8px 12px;
+    //position
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    //box-style
+    border-bottom: 1px solid $font-color-secondary;
+    background-color: $white;
+
+
+    p{
+        @include fontStyle(16px, 400, 1, $font-color-secondary);
+        margin-bottom: 2px;
+    }
+    textarea{
+        //dimensions
+        width: 100%;
+        height: 100%;
+        //box-style
+        border: none;
+        background-color: transparent;
+        outline: none;
+        resize: none;
+        //font-style
+        @include fontStyle(14px, 400, 1, $font-color-primary);
+        cursor: pointer;
+    }
+
+
 }
 .addProductForm-buttonAddProduct{
+    
+    //dimensions
+    width: 100%;
+
+    button{
+
+        //dimensions
+        width: 100%;
+        height: 51px;
+        //position
+        //box-style
+        background-color: $button-inline;
+        border: none;
+        //font-style
+        @include fontStyle(16px, 500, 1, $white);
+    }
 
 }
