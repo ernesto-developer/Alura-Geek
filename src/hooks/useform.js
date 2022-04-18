@@ -16,9 +16,21 @@ export const useForm = ( initialState = {} ) => {
             ...values,
             [ target.name ]: target.value
         });
+        console.log(target.name);
+        console.log(target.value);
 
     }
 
-    return [ values, handleInputChange, reset ];
+    const handleNewData = ({ data }) => {
+
+        setValues({
+            ...values,
+            [ values.imageUrl ]: data
+            
+        });
+            console.log( 'acutal values: '+  values);
+    }
+
+    return [ values, handleInputChange, reset,handleNewData ];
 
 }

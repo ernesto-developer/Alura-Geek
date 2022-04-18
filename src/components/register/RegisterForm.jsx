@@ -1,4 +1,5 @@
 import React from 'react'
+import Swal from 'sweetalert2'
 import { NavLink } from 'react-router-dom'
 import { useForm } from '../../hooks/useform'
 import validator from 'validator';
@@ -31,14 +32,17 @@ export const RegisterForm = () => {
     const isFormValid = () => {
         if(name.trim() === '' || email.trim() === '' || password.trim() === '' || confirmPassword.trim() === '') {
             dispatch(setError('Todos los campos son obligatorios'));
+            Swal.fire({title: 'Error', text: 'Todos los campos son obligatorios', icon: 'error'});
             return false;
         }else
         if(!validator.isEmail(email)) {
             dispatch(setError('El email no es valido'));
+            Swal.fire('Error', 'El email no es valido', 'error');
             return false;
         }else
         if(password !== confirmPassword || password.length < 5) {
             dispatch(setError('Las contraseñas no coinciden o son muy cortas'));
+            Swal.fire('Error', 'Las contraseñas no coinciden o tienen menos de 6 caracteres', 'error');
             return false;
         }
         dispatch(removeError());
@@ -49,7 +53,6 @@ export const RegisterForm = () => {
   return (
     <form className="RegisterForm" onSubmit={handleRegister} >
     <span className="RegisterForm-title"> Registrar </span>
-    {msgError && <div className='alert-error' > {msgError} </div>}
     <input
       className="RegisterForm-input"
       type="text"

@@ -1,26 +1,46 @@
 import React, {useState, useEffect } from 'react';
-import { productsJson } from '../../../resources/products';
 import { ProductCard } from './ProductCard';
 import { NavLink } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { getItemsByCategory } from '../../../helpers/getItemsByCategory';
+import { activeProduct } from '../../../actions/products';
 
-export const ProductsRows = ({ title, index, page }) => {
+export const ProductsRows = ({ category, productsByCategory }) => {
   const [sizeScreen, setSizeScreen] = useState(window.innerWidth);
   const [products, setProducts] = useState([]);
   const [amountProductsShow, setamountProductsShow] = useState(6);
+  const {name} = useSelector(state => state.auth);
+  const {items} = useSelector(state => state.products);
 
-  const getProducts = async () => {
-    const rowProducts = /*await*/ productsJson[index].products;
-    setProducts(rowProducts);
-    return rowProducts;
-  };
+  const itemsSelectedByCategory =  getItemsByCategory(items, category);
+  // console.log(itemsSelectedByCategory);
+
+  const getProducts = () => {
+
+    setProducts(itemsSelectedByCategory);
+  }
+  
+  useEffect(() => {
+    getProducts();
+    console.log('uploading products');
+  } , [items]);
+  const dispatch = useDispatch();
+
+
+  const handleAddProduct = () => {
+
+    dispatch(activeProduct(null));
+  }
 
   //useEffect Products
   useEffect(() => {
-    getProducts();
+    // getProducts();
   }, []);
   //useEffect Screen
   useEffect(() => {
     const changeScreen = (e) => {
+      // console.log(e.target.innerWidth);
+      // console.log(items);
       setSizeScreen(e.target.innerWidth);
     };
     window.addEventListener('resize', changeScreen);
@@ -36,6 +56,9 @@ export const ProductsRows = ({ title, index, page }) => {
     }else if(sizeScreen < 1280 && sizeScreen > 1070){
       setamountProductsShow(5);
     }else if(sizeScreen < 1070 && sizeScreen > 865){
+      if(sizeScreen === 865){
+        getProducts();
+      }
       setamountProductsShow(4);
     }else if(sizeScreen < 865 && sizeScreen > 658){
       setamountProductsShow(3);
@@ -54,20 +77,24 @@ export const ProductsRows = ({ title, index, page }) => {
         getProducts();
         break;
       case 5:
-      // getProducts();
+        getProducts();
         setProducts(products.slice(0, 5));
+        // slicerOfProducts(5);
         break;
-      case 4:
-        // getProducts();
+        case 4:
+        getProducts();
         setProducts(products.slice(0, 4));
+        // slicerOfProducts(4);
         break;
-      case 3:
-        // getProducts();
+        case 3:
+        getProducts();
         setProducts(products.slice(0, 3));
+        // slicerOfProducts(3);
         break;
       case 2:
         // getProducts();
         setProducts(products.slice(0, 2));
+        // slicerOfProducts(2);
         break;
       default:
         break;
@@ -78,11 +105,12 @@ export const ProductsRows = ({ title, index, page }) => {
   return (
     <div className="ProductsSection">
       <div className="ProductsSection__titles">
-        <h2> {title} </h2>
-        <NavLink className="ProductsSection__AddProductButton" to="/addProucts">
-          <button> Agregar producto </button>
+        <h2> {category} </h2>
+        {(name) 
+        ?<NavLink className="ProductsSection__AddProductButton" to="/addProucts">
+          <button onClick={handleAddProduct} > Agregar producto </button>
         </NavLink>
-        {page !== "description" && (
+        :
           <div className="ProductsScetion__containerSeeAll">
             <NavLink className="ProductsSection__sesAll" to="/login">
               Ver Todo
@@ -91,17 +119,20 @@ export const ProductsRows = ({ title, index, page }) => {
               <i className="fa-solid fa-arrow-right"></i>
             </NavLink>
           </div>
-        )}
+        }
+        
       </div>
       <div className="RowProducts">
-        {products.map(({ id, name, price, img }, index) => {
+        {products.map(({ id, title, price, imageUrl, description, category }, index) => {
           return (
             <ProductCard
               key={index}
-              url={img}
-              name={name}
+              imageUrl={imageUrl}
+              title={title}
               price={price}
               id={id}
+              description={description}
+              category={category}
             />
           );
         })}

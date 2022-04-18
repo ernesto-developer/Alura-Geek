@@ -8,9 +8,9 @@ export const LoggedOutRouter = () => {
   return (
     <div>
         <Routes>
+            <Route path='/' element={ <PublicPage /> }/>
             <Route path="login" element={<LoginPage />} />
             <Route path="register" element={<RegisterPage />} />
-            {/* <Route path='/' element={ <PublicPage /> }/> */}
         </Routes>
 
     </div>

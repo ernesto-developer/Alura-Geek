@@ -1,4 +1,5 @@
 import React from 'react'
+import Swal from 'sweetalert2';
 import { useDispatch,useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { useForm } from '../../hooks/useform'
@@ -8,7 +9,7 @@ import validator from 'validator';
 
 export const LoginForm = () => {
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const [ formvalues, handleInputChange ] = useForm({
     email: '',
@@ -20,29 +21,14 @@ export const LoginForm = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    if (validateForm) {
-      dispatch(startLoginEmailPassword(email, password));
-    }
+    dispatch(startLoginEmailPassword(email, password));
+    Swal.fire({title: 'Cargando...', text: 'Espere por favor',timer:1500});
   };
-
+  
   const handleGoogleLogin = (e) => {
     e.preventDefault();
     dispatch(startGoogleLogin());
-  };
-
-  const validateForm = () => {
-    if (email.trim() === "" || password.trim() === "") {
-      dispatch(setError("Todos los campos son obligatorios"));
-      return false;
-    } else if (!validator.isEmail(email)) {
-      dispatch(setError("El email no es valido"));
-      return false;
-    } else if (password.length < 5) {
-      dispatch(setError("La contraseña es muy corta"));
-      return false;
-    }
-    dispatch(removeError());
-    return true;
+    Swal.fire({title: 'Cargando...', text: 'Espere por favor',timer:1500});
   };
 
 

@@ -1,13 +1,37 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
+import { activeProduct, startDeletingProduct } from '../../../actions/products';
+import { useDispatch } from 'react-redux';
 
-export const ProductCard = ({url, name, price, id}) => {
+export const ProductCard = ({imageUrl, title, price, id, description, category}) => {
+
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+
+    dispatch(activeProduct(id, {title, price, imageUrl, description, category}));
+
+  }
+
+  const handleDelete = () => {
+  
+      dispatch( startDeletingProduct( id ) );
+  }
+
+
+
   return (
     <div key={id} className='productCard'  >
-        <img className='productCard__img'  src={url} alt=''></img>
-        <span className='productCard__name' > {name} </span>
+        <div className='productCard__boxImg'>
+          <img className='productCard__img'  src={imageUrl} alt=''></img>
+          <div className='productCard__img__icons'>
+            <i className="fa-solid fa-trash-can " onClick={handleDelete} ></i>
+            <Link to='/addProucts' onClick={handleClick} ><i className="fa-solid fa-pen "></i></Link>
+          </div>
+        </div>
+        <span className='productCard__name' > {title} </span>
         <span className='productCard__price' >$ {price} </span>
-        <NavLink className="productCard__link" to='/description'> Ver producto </NavLink>
+        <NavLink className="productCard__link" to='/description' onClick={handleClick} > Ver producto </NavLink>
     </div>
   )
 }

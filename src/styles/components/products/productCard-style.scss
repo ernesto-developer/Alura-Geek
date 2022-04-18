@@ -24,6 +24,40 @@
     //responsive
     @include responsive_mobile(auto, auto, 150px, 150px);
 }
+.productCard__boxImg{
+    //dimensions
+    width: 176px;
+    height: 174px;
+    display: flex;
+
+}
+.productCard__img__icons{
+    //dimensions
+    width: 70px;
+    height: fit-content;
+    margin: 5px 5px 138px 95px;
+    //position
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-self: flex-end;
+    position: absolute;
+    //box-style
+    border-radius: 10px;
+    background-color: rgba(30, 81, 40, .3 );
+    backdrop-filter: blur(5px);
+
+
+    i{
+        // margin-left: 20px; 
+        color: $white;
+        // background-color: rgb(99, 96, 96);
+        cursor: pointer;
+    }
+    @media (max-width: 577px) {
+        margin: 5px 5px 138px 70px;
+    }
+}
 .productCard__name{
     //font-style
     @include fontStyle(14px, 500, 16px, $font-color-primary);

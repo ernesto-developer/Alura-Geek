@@ -7,9 +7,9 @@ import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { login } from '../actions/auth';
 import { PrivateRoute } from './PrivateRoute';
 import { PublicRoute } from './PublicRoute';
-import { LoggedOutRouter } from './LoggedOutRoutes';
 import { LoginPage } from '../pages/LoginPage';
 import { RegisterPage } from '../pages/RegisterPage';
+import { startLoadingProducts } from '../actions/products';
 
 
 export const AppRouter = () => {
@@ -21,11 +21,14 @@ export const AppRouter = () => {
 
   useEffect(() => {
     
-    firebase.auth().onAuthStateChanged((user) => {
+    firebase.auth().onAuthStateChanged( async(user) => {
       if(user?.uid){
           dispatch(login(user.uid, user.displayName));
           setCheckingAuth(false);
           setIsLoggedIn(true);
+          dispatch(startLoadingProducts(user.uid));
+
+
       }else{
         setIsLoggedIn(false);
       }
@@ -42,12 +45,17 @@ export const AppRouter = () => {
     <BrowserRouter>
       <Routes>
             
+      {/* TODO: review more about routes v6 */}
+      {/* TODO: Insert in the routes the navbar, skirtingboard and the fotter component, 
+        for this way render in all pages the same components */}
+  
 
         <Route path="/login" element={
           <PublicRoute isLoggedIn={isLoggedIn} >
           
            <LoginPage/>
-          <RegisterPage/>
+           <RegisterPage/>
+
           </PublicRoute>
         }/>  
         

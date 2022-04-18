@@ -6,7 +6,7 @@
 .addProductForm-containerAll{
     //dimensions
     width: 559px;
-    height: 515px;
+    height: 600px;
     margin: 64px 0px;
     //position
     display: flex;
@@ -71,6 +71,11 @@
         //foont-style
         @include fontStyle(14px, 400, 1.3, $font-color-secondary);
         // text-align: center;
+    }
+
+    img{
+        width: 100%;
+        height: 145px;
     }
 
     // responsive
