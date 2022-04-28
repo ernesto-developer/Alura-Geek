@@ -79,3 +79,13 @@ export const logout = () => {
         type: types.logout,
     };
 }
+
+export const changeUserName = (uid, displayName) => ({
+ 
+  type: types.changeUser,
+  payload: {
+    uid,
+    displayName,
+  }
+
+});

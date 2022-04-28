@@ -19,8 +19,9 @@ export const starNewProduct = ( {title, description, imageUrl, price, category} 
         }
 
        await db.collection(`${uid}/store/products`).add(newItem);
-              
+        dispatch(startLoadingProducts(uid));   
         Swal.close();
+
     }
 
 }

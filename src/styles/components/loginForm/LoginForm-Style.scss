@@ -60,18 +60,33 @@
     border: none;
     background-color: $button-inline;
     color: $white;
+    display:  flex;
     //font
     font-size: 18px;
     line-height: 21px;
     font-weight: 200;
+
+    .nav-link{
+      position: inherit;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        // text-align: center;
+
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+        color: white;   
+        height: 100%;
+        @include responsive_tablet(14px, 16px, 109px, 40px);
+
+    }
+    
     //Responsive
     @include responsive_tablet(14px, 16px, 109px, 40px);
-}
-.nav-Link{
-    width: 100%;
-}
-
-//Login button
+  }
+  
+  //Login button
 
 .google-btn {
     width: 184px;

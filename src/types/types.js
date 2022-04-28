@@ -3,6 +3,8 @@
 export const  types = {
     login: '[Auth] Login',
     logout: '[Auth] Logout',
+    
+    changeEmail: '[User] Change Email',
 
     uiSetError: '[UI] Set Error',
     uiRemoveError: '[UI] Remove Error',

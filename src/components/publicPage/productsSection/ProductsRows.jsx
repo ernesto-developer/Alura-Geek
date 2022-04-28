@@ -11,24 +11,23 @@ export const ProductsRows = ({ category, productsByCategory }) => {
   const [amountProductsShow, setamountProductsShow] = useState(6);
   const {name} = useSelector(state => state.auth);
   const {items} = useSelector(state => state.products);
+  const dispatch = useDispatch();
 
   const itemsSelectedByCategory =  getItemsByCategory(items, category);
-  // console.log(itemsSelectedByCategory);
-
+  
   const getProducts = () => {
-
+    
     setProducts(itemsSelectedByCategory);
   }
   
   useEffect(() => {
     getProducts();
     console.log('uploading products');
+    console.log(itemsSelectedByCategory);
   } , [items]);
-  const dispatch = useDispatch();
 
 
   const handleAddProduct = () => {
-
     dispatch(activeProduct(null));
   }
 
@@ -112,7 +111,7 @@ export const ProductsRows = ({ category, productsByCategory }) => {
         </NavLink>
         :
           <div className="ProductsScetion__containerSeeAll">
-            <NavLink className="ProductsSection__sesAll" to="/login">
+            <NavLink className="ProductsSection__sesAll" to="/">
               Ver Todo
             </NavLink>
             <NavLink to="/login">
