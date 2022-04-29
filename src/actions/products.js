@@ -4,10 +4,12 @@ import { loadProducts } from "../helpers/loadProducts";
 import Swal from "sweetalert2";
 import { fileUpload } from "../helpers/fileUpload";
 
+const generalUID = '8bKwlVmR3TXmdTlqCRuTlr2cQGl1';
+
 export const starNewProduct = ( {title, description, imageUrl, price, category} ) => {
 
     return async (dispatch, getState) => {
-        const { uid } = getState().auth;
+        // const { uid } = getState().auth;
         
         Swal.fire('Producto agregado', title, 'success');
         const newItem = {
@@ -18,8 +20,8 @@ export const starNewProduct = ( {title, description, imageUrl, price, category} 
             category: category,
         }
 
-       await db.collection(`${uid}/store/products`).add(newItem);
-        dispatch(startLoadingProducts(uid));   
+       await db.collection(`${generalUID}/store/products`).add(newItem);
+        dispatch(startLoadingProducts(generalUID));   
         Swal.close();
 
     }
@@ -53,7 +55,7 @@ export const setProducts = (products) =>({
 export const startUpdateProduct = ( item ) => {
 
     return async (dispatch, getState) => {
-        const { uid } = getState().auth;
+        // const { uid } = getState().auth;
 
         if(!item.imageUrl) {
             delete item.imageUrl;
@@ -62,9 +64,9 @@ export const startUpdateProduct = ( item ) => {
         const productToFirestore = { ...item };
         delete productToFirestore.id;
 
-        await db.doc(`${uid}/store/products/${item.id}`).update(productToFirestore);
+        await db.doc(`${generalUID}/store/products/${item.id}`).update(productToFirestore);
         // dispatch(refreshProduct(item.id, item));
-        dispatch(startLoadingProducts(uid));
+        dispatch(startLoadingProducts(generalUID));
         dispatch(activeProduct(null, null));
         Swal.fire('Producto actualizado', item.title, 'success');
         
@@ -111,8 +113,8 @@ export const startDeletingProduct = (id) => {
 
     Swal.fire('Producto borrado',  'success');
 
-    const uid = getState().auth.uid;
-    await db.doc(`${uid}/store/products/${id}`).delete();
+    // const uid = getState().auth.uid;
+    await db.doc(`${generalUID}/store/products/${id}`).delete();
 
 
    Swal.close();

@@ -29,8 +29,8 @@
 
 .alert-error{
     padding: 3px;
-    background-color: rgb(254, 122, 122);
-    @include fontStyle(14px, 700, 19px, $white);
+    
+    @include fontStyle(14px, 700, 19px,  rgb(254, 122, 122));
 }
 
 .RegisterForm-input{

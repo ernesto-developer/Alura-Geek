@@ -9,7 +9,7 @@ export const ProductsRows = ({ category, productsByCategory }) => {
   const [sizeScreen, setSizeScreen] = useState(window.innerWidth);
   const [products, setProducts] = useState([]);
   const [amountProductsShow, setamountProductsShow] = useState(6);
-  const {name} = useSelector(state => state.auth);
+  const {actualUser} = useSelector(state => state.user);
   const {items} = useSelector(state => state.products);
   const dispatch = useDispatch();
 
@@ -22,8 +22,6 @@ export const ProductsRows = ({ category, productsByCategory }) => {
   
   useEffect(() => {
     getProducts();
-    console.log('uploading products');
-    console.log(itemsSelectedByCategory);
   } , [items]);
 
 
@@ -104,8 +102,8 @@ export const ProductsRows = ({ category, productsByCategory }) => {
   return (
     <div className="ProductsSection">
       <div className="ProductsSection__titles">
-        <h2> {category} </h2>
-        {(name) 
+        <h2 id={category} > {category} </h2>
+        {(actualUser !== 'UserGuest') 
         ?<NavLink className="ProductsSection__AddProductButton" to="/addProucts">
           <button onClick={handleAddProduct} > Agregar producto </button>
         </NavLink>

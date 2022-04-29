@@ -57,6 +57,19 @@ export const AddProductForm = () => {
         dispatch( startUploading( file) );
       }
   }
+  const dropHandler = (e) => {
+    e.preventDefault();
+    console.log(e.dataTransfer.files);
+    const file = e.dataTransfer.files[0];
+    if( file ){
+      dispatch( startUploading( file) );
+    }
+    
+  }
+  const dragOverHandler = (e) => {
+    e.preventDefault();
+    console.log(e.dataTransfer.files);
+  }
 
   useEffect(() => {
     handleNewData(
@@ -80,7 +93,11 @@ export const AddProductForm = () => {
             />
            {(  values.imageUrl !== undefined) ? 
             <img className='' src={imageUrl} alt='img' ></img>
-            : <div>
+            : <div  
+              id='drop-zone'
+              onDrop={dropHandler}
+              onDragOver={dragOverHandler}
+            >
             {sizeScreen > 530 
               ? (<i className="fa-solid fa-image"></i>)
               : (<i className="fa-solid fa-plus"></i>

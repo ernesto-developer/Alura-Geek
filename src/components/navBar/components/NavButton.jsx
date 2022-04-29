@@ -2,24 +2,28 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
-import {changeEmailUser} from '../../../actions/user';
+import {changeUser} from '../../../actions/user';
+import { startLogout } from '../../../actions/auth';
 
 
 export const NavButton = () => {
   
-  const {email} = useSelector(state => state.user);
+  const {actualUser} = useSelector(state => state.user);
   const dispatch = useDispatch();
   
-  const handleLogout = () => dispatch(changeEmailUser(''));
+  // const handleLogout = () => dispatch(changeUser(''));
+  const handleLogout = () => dispatch(startLogout());
+  
+  //TODO: TERMIANR LA ACTUALIZACION DEL CHANGEEMAIL POR EL CHANGEUSER
   
 
   return (
-    <NavLink className="nav-link" to={ (email === '') ? '/login': '/' }>
+    <NavLink className="nav-link" to={ (actualUser === 'UserGuest' ) ? '/login': '/' }>
       <button 
       type='button'
       className="navBar__container-button"
-      onClick={ (email !== '' ) ? handleLogout : null  }
-      > {(email === '') ? 'Login' : 'Logout'  } </button>
+      onClick={ (actualUser !== 'UserGuest'  ) ? handleLogout : null  }
+      > {(actualUser === 'UserGuest' ) ? 'Login' : 'Logout'  } </button>
     </NavLink>
   );
 }

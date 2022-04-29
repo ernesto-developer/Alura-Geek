@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react'
 import {useSelector, useDispatch} from 'react-redux';
 import {Link} from 'react-router-dom';
-// import { changeUserName } from '../../../actions/auth';
 import { activeProduct } from '../../../actions/products';
-import {changeEmailUser} from '../../../actions/user';
+import { changeUser } from '../../../actions/user';
 
 
 export const Banner = () => {
@@ -16,9 +15,10 @@ export const Banner = () => {
     dispatch( activeProduct(null) );
   } , []);
 
-  const changeUserEmail = () => {
+  const changeactualUser = () => {
 
-    dispatch(changeEmailUser('test de email'));
+    dispatch( changeUser('') );
+    //TODO: TERMIANR LA ACTUALIZACION DEL CHANGEEMAIL POR EL CHANGEUSER
   }
 
   return (
@@ -27,7 +27,7 @@ export const Banner = () => {
         <h3> Productos seleccionados con 33% de descuento </h3>
         {(uid !== null && items.length === 0)
           ? <Link to='/addProucts' ><button> Agregar Productos </button></Link>
-          : <button onClick={changeUserEmail} > Ver consolas </button>
+          : <a href='#Consolas' > <button > Ver consolas </button></a>
         }
 
         

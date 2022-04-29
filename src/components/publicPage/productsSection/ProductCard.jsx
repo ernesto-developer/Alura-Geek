@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 export const ProductCard = ({imageUrl, title, price, id, description, category}) => {
 
   const dispatch = useDispatch();
-  const {email} = useSelector(state => state.user);
+  const {actualUser} = useSelector(state => state.user);
 
   const handleClick = () => {
     dispatch(activeProduct(id, {title, price, imageUrl, description, category}));
@@ -22,7 +22,7 @@ export const ProductCard = ({imageUrl, title, price, id, description, category})
     <div key={id} className='productCard'  >
         <div className='productCard__boxImg'>
           <img className='productCard__img'  src={imageUrl} alt=''></img>
-          {(email !== '') && (<div className='productCard__img__icons'>
+          {(actualUser !== 'UserGuest') && (<div className='productCard__img__icons'>
             <i className="fa-solid fa-trash-can " onClick={handleDelete} ></i>
             <Link to='/addProucts' onClick={handleClick} ><i className="fa-solid fa-pen "></i></Link>
           </div>)}

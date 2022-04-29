@@ -51,8 +51,9 @@ export const RegisterForm = () => {
 
 
   return (
-    <form className="RegisterForm" onSubmit={handleRegister} >
+    <form className="RegisterForm" >
     <span className="RegisterForm-title"> Registrar </span>
+    {msgError && <div className="alert-error"> {msgError} </div>}
     <input
       className="RegisterForm-input"
       type="text"
@@ -85,7 +86,8 @@ export const RegisterForm = () => {
       value={confirmPassword}
       onChange={handleInputChange}
     />
-    <button className="RegisterForm-button" > Registrar </button>
+    <button type='button' className="RegisterForm-button" onClick={handleRegister}> Registrar </button>
+    <NavLink id='RegisterButton' style={{display: 'none'}} className="nav-Link" to="/"></NavLink>
    
     <NavLink className="nav-Link" to="/login"> Ya estas Registrado</NavLink>
 

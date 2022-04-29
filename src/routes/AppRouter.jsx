@@ -17,6 +17,7 @@ import { LoginPage } from '../pages/LoginPage';
 import { ProductsPage } from '../pages/ProductsPage';
 import { PublicPage } from '../pages/PublicPage';
 import { RegisterPage } from '../pages/RegisterPage';
+import { changeUser } from '../actions/user';
 
 
 
@@ -29,23 +30,27 @@ export const AppRouter = () => {
 
   useEffect(() => {
 
-    dispatch(startLoginEmailPassword('userguest@guest.com', 'pokpok'));
-
-     setIsLoggedIn(true);
-          dispatch(startLoadingProducts("8bKwlVmR3TXmdTlqCRuTlr2cQGl1"));
     
-    // firebase.auth().onAuthStateChanged( async(user) => {
-    //   if(user?.uid){
-    //       dispatch(login(user.uid, user.displayName));
-    //       setCheckingAuth(false);
-    //       setIsLoggedIn(true);
-    //       dispatch(startLoadingProducts(user.uid));
 
-
-    //   }else{
-    //     setIsLoggedIn(false);
-    //   }
-    // });
+    //  setIsLoggedIn(true);
+          // dispatch(startLoadingProducts("8bKwlVmR3TXmdTlqCRuTlr2cQGl1"));
+    
+    firebase.auth().onAuthStateChanged( async(user) => {
+      if(user?.uid){
+          dispatch(login(user.uid, user.displayName));
+          setCheckingAuth(false);
+          setIsLoggedIn(true);
+          // dispatch(startLoadingProducts(user.uid));
+          dispatch(startLoadingProducts("8bKwlVmR3TXmdTlqCRuTlr2cQGl1"));
+          dispatch(changeUser(user.displayName));
+          
+          
+        }else  {
+          // setIsLoggedIn(false);
+          dispatch( startLoginEmailPassword('userguest@guest.com', 'pokpok'));
+          
+      }
+    });
   }, [dispatch, setCheckingAuth, setIsLoggedIn]);
   
 //#################################################################################################################################################

@@ -4,7 +4,7 @@ export const  types = {
     login: '[Auth] Login',
     logout: '[Auth] Logout',
     
-    changeEmail: '[User] Change Email',
+    changeUser: '[User] Change User',
 
     uiSetError: '[UI] Set Error',
     uiRemoveError: '[UI] Remove Error',

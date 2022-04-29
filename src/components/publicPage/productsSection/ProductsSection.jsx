@@ -14,6 +14,7 @@ export const ProductsSection = () => {
   return (
     <div className="productsPage">
       {uniqueCategories.map((category, index) => {
+        
         return <ProductsRows key={index} category={category} />;
       })}
     </div>
