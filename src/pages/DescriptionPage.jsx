@@ -8,11 +8,8 @@ import { SkirtingBoard } from '../components/skirtingBoard/SkirtingBoard'
 export const DescriptionPage = () => {
   return (
     <div>
-      <NavBar />
       <ProductDescription />
       <SimilarProducts /> 
-      <SkirtingBoard />
-      <Footer />
     </div>
   )
 }

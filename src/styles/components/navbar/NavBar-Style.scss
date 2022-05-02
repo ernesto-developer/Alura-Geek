@@ -71,11 +71,14 @@
 }
 .navBar__container-img{
     width: 19%;
-
+    cursor: pointer;
+    
+    
     @media (max-width: 790px) {
         width: 23%;
     }
     @media (max-width: 577px) {
+        margin-right: auto;
         width: 30%;
     }
     
@@ -104,6 +107,7 @@
 }
 .navBar__container__boxSearch-icon{
     color: $font-color-secondary;
+    cursor: pointer;
 }
 
 .navBar__container-button{

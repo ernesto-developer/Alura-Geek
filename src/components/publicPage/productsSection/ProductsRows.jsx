@@ -1,43 +1,39 @@
 import React, {useState, useEffect } from 'react';
 import { ProductCard } from './ProductCard';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getItemsByCategory } from '../../../helpers/getItemsByCategory';
 import { activeProduct } from '../../../actions/products';
+import queryString from 'query-string';
+import { getItemsByTitle } from '../../../helpers/getItemsByTitle';
 
 export const ProductsRows = ({ category, productsByCategory }) => {
+
   const [sizeScreen, setSizeScreen] = useState(window.innerWidth);
   const [products, setProducts] = useState([]);
   const [amountProductsShow, setamountProductsShow] = useState(6);
   const {actualUser} = useSelector(state => state.user);
   const {items} = useSelector(state => state.products);
-  const dispatch = useDispatch();
-
   const itemsSelectedByCategory =  getItemsByCategory(items, category);
+  const dispatch = useDispatch();
+  
   
   const getProducts = () => {
-    
     setProducts(itemsSelectedByCategory);
   }
-  
+    
   useEffect(() => {
     getProducts();
   } , [items]);
-
 
   const handleAddProduct = () => {
     dispatch(activeProduct(null));
   }
 
-  //useEffect Products
-  useEffect(() => {
-    // getProducts();
-  }, []);
+
   //useEffect Screen
   useEffect(() => {
     const changeScreen = (e) => {
-      // console.log(e.target.innerWidth);
-      // console.log(items);
       setSizeScreen(e.target.innerWidth);
     };
     window.addEventListener('resize', changeScreen);
@@ -47,7 +43,6 @@ export const ProductsRows = ({ category, productsByCategory }) => {
   }, [])
 
   useEffect(() => {
-  
     if(sizeScreen > 1280){
       setamountProductsShow(6);
     }else if(sizeScreen < 1280 && sizeScreen > 1070){
@@ -62,13 +57,10 @@ export const ProductsRows = ({ category, productsByCategory }) => {
     }else if(sizeScreen < 658 ){
       setamountProductsShow(2);
     }
-
-
   },[sizeScreen]);
   
 
   useEffect(() => {
-
     switch (amountProductsShow) {
       case 6:
         getProducts();
@@ -96,7 +88,6 @@ export const ProductsRows = ({ category, productsByCategory }) => {
       default:
         break;
     }
-
   },[amountProductsShow]);
 
   return (
@@ -109,7 +100,7 @@ export const ProductsRows = ({ category, productsByCategory }) => {
         </NavLink>
         :
           <div className="ProductsScetion__containerSeeAll">
-            <NavLink className="ProductsSection__sesAll" to="/">
+            <NavLink className="ProductsSection__sesAll" to="/seeAllProd" state={category}>
               Ver Todo
             </NavLink>
             <NavLink to="/login">

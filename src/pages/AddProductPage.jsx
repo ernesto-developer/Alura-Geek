@@ -7,10 +7,7 @@ import { Footer } from '../components/footer/Footer'
 export const AddProductPage = () => {
   return (
     <div>
-      <NavBar />
       <AddProductForm />
-      <SkirtingBoard />
-      <Footer />
     </div>
   )
 }

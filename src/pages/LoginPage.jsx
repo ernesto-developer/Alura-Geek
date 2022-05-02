@@ -7,10 +7,7 @@ import { SkirtingBoard } from '../components/skirtingBoard/SkirtingBoard'
 export const LoginPage = () => {
   return (
     <div>
-      <NavBar />
       <LoginForm />
-      <SkirtingBoard />
-      <Footer/>
     </div>
   )
 }

@@ -7,10 +7,7 @@ import { RegisterForm } from '../components/register/RegisterForm'
 export const RegisterPage = () => {
   return (
     <div>
-        <NavBar />
         <RegisterForm />
-        <SkirtingBoard />
-        <Footer/>
     </div>
   )
 }

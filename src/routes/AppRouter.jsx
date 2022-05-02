@@ -1,23 +1,19 @@
 import React, {useEffect,useState} from 'react'
 import { useDispatch} from 'react-redux'
 import { firebase } from '../firebase/firebase-config';
-import { AuthRouter } from './AuthRouter';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-
-import { PrivateRoute } from './PrivateRoute';
-import { PublicRoute } from './PublicRoute';
-// import { LoginPage } from '../pages/LoginPage';
-// import { RegisterPage } from '../pages/RegisterPage';
 import { startLoadingProducts } from '../actions/products';
 import { login, startLoginEmailPassword} from '../actions/auth';
-
 import { AddProductPage } from '../pages/AddProductPage';
 import { DescriptionPage } from '../pages/DescriptionPage';
 import { LoginPage } from '../pages/LoginPage';
-import { ProductsPage } from '../pages/ProductsPage';
 import { PublicPage } from '../pages/PublicPage';
 import { RegisterPage } from '../pages/RegisterPage';
 import { changeUser } from '../actions/user';
+import { SeeAllProductsByCategory } from '../pages/SeeAllProductsByCategory';
+import { NavBar } from '../components/navBar/NavBar';
+import { SkirtingBoard } from '../components/skirtingBoard/SkirtingBoard';
+import { Footer } from '../components/footer/Footer';
 
 
 
@@ -55,47 +51,20 @@ export const AppRouter = () => {
   
 //#################################################################################################################################################
 
-  // if(checkingAuth){
-  //   return <div>Cargando...</div>
-  // }
-
   return (
     <BrowserRouter>
-      {/* <Routes> */}
-            
-      {/* TODO: review more about routes v6 */}
-      {/* TODO: Insert in the routes the navbar, skirtingboard and the fotter component, 
-        for this way render in all pages the same components */}
-  
-
+        <NavBar/>
         <Routes>
-            <Route path='products' element={ <ProductsPage /> } />
+            {/* <Route path='products' element={ <ProductsPage /> } /> */}
             <Route path='description' element={ <DescriptionPage /> } />
             <Route path='addProucts' element={ <AddProductPage /> } />
             <Route path='login' element={<LoginPage />} />
             <Route path='register' element={<RegisterPage />} />
-            <Route path='/' element={ <PublicPage /> }/>
+            <Route path='seeAllProd' element={<SeeAllProductsByCategory />} />
+            <Route path='/' element={ <PublicPage /> }/>     
         </Routes>
-
-
-        {/* <Route path="/login" element={
-          <PublicRoute isLoggedIn={isLoggedIn} >
-          
-           <LoginPage/>
-           <RegisterPage/>
-
-          </PublicRoute>
-        }/>  
-        
-           
-        
-     
-        <Route path="/*" element={
-          <PrivateRoute isLoggedIn={isLoggedIn} >
-            <AuthRouter />
-          </PrivateRoute>
-        } /> */}
-      {/* </Routes> */}
+        <SkirtingBoard/>
+        <Footer/>
     </BrowserRouter>
   );
 };
