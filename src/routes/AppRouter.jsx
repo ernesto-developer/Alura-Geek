@@ -55,13 +55,12 @@ export const AppRouter = () => {
     <BrowserRouter>
         <NavBar/>
         <Routes>
-            {/* <Route path='products' element={ <ProductsPage /> } /> */}
+            <Route path='/' element={ <PublicPage /> }/>     
             <Route path='description' element={ <DescriptionPage /> } />
             <Route path='addProucts' element={ <AddProductPage /> } />
             <Route path='login' element={<LoginPage />} />
             <Route path='register' element={<RegisterPage />} />
             <Route path='seeAllProd' element={<SeeAllProductsByCategory />} />
-            <Route path='/' element={ <PublicPage /> }/>     
         </Routes>
         <SkirtingBoard/>
         <Footer/>
